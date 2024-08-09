@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>브랜드 탭 메뉴</title>
+    <style>
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .tab-button {
+            padding: 0;
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+            margin-right: 10px;
+        }
+
+        .tab-button img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            object-fit: cover;
+        }
+
+        .tab-content {
+            display: none;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabs">
+        <button class="tab-button" data-tab="tab1">
+            <img src="images/hyundai.png" alt="현대">
+        </button>
+        <button class="tab-button" data-tab="tab2">
+            <img src="images/kia.png" alt="기아">
+        </button>
+        <button class="tab-button" data-tab="tab3">
+            <img src="images/genesis.png" alt="제네시스">
+        </button>
+        <button class="tab-button" data-tab="tab4">
+            <img src="images/renault.png" alt="르노">
+        </button>
+        <button class="tab-button" data-tab="tab5">
+            <img src="images/chevrolet.png" alt="쉐보레">
+        </button>
+        <button class="tab-button" data-tab="tab6">
+            <img src="images/ssangyong.png" alt="쌍용">
+        </button>
+        <button class="tab-button" data-tab="tab7">
+            <img src="images/import_car.png" alt="수입 자동차">
+        </button>
+    </div>
+
+    <div id="tab1" class="tab-content active">
+        <p>현대 자동차에 대한 정보</p>
+    </div>
+    <div id="tab2" class="tab-content">
+        <p>기아 자동차에 대한 정보</p>
+    </div>
+    <div id="tab3" class="tab-content">
+        <p>제네시스 자동차에 대한 정보</p>
+    </div>
+    <div id="tab4" class="tab-content">
+        <p>르노 자동차에 대한 정보</p>
+    </div>
+    <div id="tab5" class="tab-content">
+        <p>쉐보레 자동차에 대한 정보</p>
+    </div>
+    <div id="tab6" class="tab-content">
+        <p>쌍용 자동차에 대한 정보</p>
+    </div>
+    <div id="tab7" class="tab-content">
+        <p>수입 자동차에 대한 정보</p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const buttons = document.querySelectorAll(".tab-button");
+            const contents = document.querySelectorAll(".tab-content");
+
+            buttons.forEach(button => {
+                button.addEventListener("click", function () {
+                    const targetTab = this.getAttribute("data-tab");
+
+                    contents.forEach(content => {
+                        if (content.id === targetTab) {
+                            content.classList.add("active");
+                        } else {
+                            content.classList.remove("active");
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
